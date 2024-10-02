@@ -1,0 +1,40 @@
+name: Build and Deploy PortfolioV2
+
+on:
+  push:
+    branches:
+      - main  # Trigger the action on push to main branch
+
+jobs:
+  build:
+    runs-on: self-hosted  # Use your self-hosted runner
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Node.js (Specify your Node version if necessary)
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'  # Adjust to your node version if needed
+
+      # Step 3: Run data-fetcher script
+      - name: Run data-fetcher script
+        run: |
+          cd data-fetcher
+          npm install
+          npm run build
+
+      # Step 4: Install dependencies and build Svelte app
+      - name: Install dependencies and build
+        run: |
+          cd ..
+          npm install
+          npm run build
+
+      # Step 5: Deploy built static files
+      - name: Deploy to /var/www/portfolioV2
+        run: |
+          sudo rm -rf /var/www/portfolioV2/*
+          sudo cp -r ./public/* /var/www/portfolioV2/
