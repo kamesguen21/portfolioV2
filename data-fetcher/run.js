@@ -1,6 +1,6 @@
 // fetch-data.js
-import fs from 'fs';
-import path from 'path';
+const fs = require('fs');
+const path = require('path');
 
 async function fetchData() {
 	const dirPath = '/home/ubuntu/test';
