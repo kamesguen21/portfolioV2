@@ -18,14 +18,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '20'  # Adjust to your node version if needed
-
-      # Step 3: Run data-fetcher script
-      - name: Run data-fetcher script
-        run: |
-          cd data-fetcher
-          npm install
-          npm run build
-
       # Step 4: Install dependencies and build Svelte app
       - name: Install dependencies and build
         run: |

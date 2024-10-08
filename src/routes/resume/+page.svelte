@@ -1,5 +1,5 @@
 <script>
-	import { data, title } from '@data/resume';
+	import { data, datafr, title } from '@data/resume';
 
 	import Chip from '$lib/components/Chip/Chip.svelte';
 	import CommonPage from '$lib/components/CommonPage.svelte';
@@ -9,7 +9,10 @@
 	<div class="resume">
 		{#if data}
 			<a href={data} download>
-				<Chip size={'1.25em'}>Download</Chip>
+				<Chip size={'1.25em'}>Download English Version</Chip>
+			</a>
+			<a href={datafr} download>
+				<Chip size={'1.25em'}>Download French Version</Chip>
 			</a>
 		{:else}
 			<Chip>Ooops! no CV at the moment.</Chip>
