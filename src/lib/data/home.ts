@@ -7,7 +7,7 @@ export const name = 'Med khames';
 
 export const lastName = 'Guen';
 
-export const description = 'Senior Java/JS Developer with {yearsOfExperience} years of experience in the IT industry, including work on fintech projects for insurance and financial institutions. I have a strong background in developing high-performing microservice systems and have served as both a tech lead and team lead. My passion for the IT industry drives my commitment to continuous learning and innovation';
+export const description = 'Senior Software Engineer with proven experience spanning more than {yearsOfExperience} years of experience in the IT industry, including work on fintech projects for insurance and financial institutions. I have a strong background in developing high-performing microservice systems and have served as both a tech lead and team lead. My passion for the IT industry drives my commitment to continuous learning and innovation';
 
 export const links: Array<{ platform: Platform; link: string }> = [{
 	platform: Platform.GitHub, link: 'https://github.com/kamesguen21'
