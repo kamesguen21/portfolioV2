@@ -69,7 +69,7 @@ export interface BlogPost<S extends string = string> extends Omit<Item<S>, 'shor
 }
 export interface Certificate<S extends string = string> extends Omit<Item<S>, 'shortDescription'>{
 	link?: Link;
-	download: Link;
+	download?: Link;
 	color: Color;
 	skills?: Array<Skill<S>>;
 }
