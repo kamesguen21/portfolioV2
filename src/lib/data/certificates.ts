@@ -3,7 +3,7 @@ import { getSkills } from './skills';
 import type { Certificate } from '../types';
 import { base } from '$app/paths';
 
-export const ocpLink = `${base}/uploads/OCPJSE11.jpg`;
+export const ocpLink = `${base}/uploads/OCPJSE11.pdf`;
 export const toeicLink = `${base}/uploads/toiec.jpeg`;
 export const ecoDeseinLink = `${base}/uploads/toiec.jpeg`;
 
