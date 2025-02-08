@@ -45,9 +45,10 @@
 			companies. With proven success in <b>Tech Lead</b> and <b>Team Lead</b> roles, with a passion for leveraging
 			technology and continuous learning to
 			deliver scalable, effective solutions.
-			<a href={resumeLink} download>
+			<a href={resumeLink} download target="_blank" rel="noopener noreferrer">
 				<Chip size={'0.5em'}>Download Resume</Chip>
 			</a>
+
 		</p>
 		<div class="row justify-center md:justify-start p-y-15px p-x-0px gap-2">
 			{#each links as link}
