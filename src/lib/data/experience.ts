@@ -7,10 +7,10 @@ export const items: Array<Experience> = [
 		slug: 'ctw',
 		company: 'Critical TechWorks',
 		description: 'Developing and maintaining cloud-native automotive applications for BMW manufacturing plants, contributing to scalable microservices and modern web applications that support plant management and digital manufacturing initiatives. Collaborating in Scrum teams to design, develop, test, and deploy high-quality software using modern Java and cloud technologies.',
-		contract: ContractType.SelfEmployed,
+		contract: ContractType.Contract,
 		type: 'Software Development',
 		location: 'Lisbon, Portugal',
-		period: { from: new Date(2026, 2, 1) },
+		period: { from: new Date(2026, 1, 1) },
 		skills: getSkills(
 			'java',
 			'quarkus',
