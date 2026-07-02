@@ -3,31 +3,40 @@ name: Build and Deploy PortfolioV2
 on:
   push:
     branches:
-      - develop  # Trigger the action on push to main branch
+      - main
 
 jobs:
   build:
-    runs-on: self-hosted  # Use your self-hosted runner
+    runs-on: ubuntu-latest
     steps:
-      # Step 1: Checkout the repository
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      # Step 2: Set up Node.js (Specify your Node version if necessary)
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'  # Adjust to your node version if needed
-      # Step 4: Install dependencies and build Svelte app
-      - name: Install dependencies and build
-        run: |
-          cd ..
-          cd portfolioV2
-          npm install
-          npm run build
+          node-version: '20'
 
-      # Step 5: Deploy built static files
-      - name: Deploy to /var/www/portfolioV2
-        run: |
-          sudo rm -rf /var/www/portfolioV2/*
-          sudo cp -r build/* /var/www/portfolioV2/
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build site
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
