@@ -4,6 +4,32 @@ import { ContractType, type Experience } from '../types';
 
 export const items: Array<Experience> = [
 	{
+		slug: 'ctw',
+		company: 'Critical TechWorks',
+		description: 'Developing and maintaining cloud-native automotive applications for BMW manufacturing plants, contributing to scalable microservices and modern web applications that support plant management and digital manufacturing initiatives. Collaborating in Scrum teams to design, develop, test, and deploy high-quality software using modern Java and cloud technologies.',
+		contract: ContractType.SelfEmployed,
+		type: 'Software Development',
+		location: 'Lisbon, Portugal',
+		period: { from: new Date(2026, 2, 1) },
+		skills: getSkills(
+			'java',
+			'quarkus',
+			'angular',
+			'typescript',
+			'microservices',
+			'azure',
+			'kubernetes',
+			'docker',
+			'git',
+			'rest'
+		),
+		name: 'Senior Software Engineer',
+		color: 'blue',
+		links: [],
+		logo: Assets.CriticalTechWorks,
+		shortDescription: 'Developing cloud-native automotive applications for BMW manufacturing plants using Quarkus, Angular, Azure, and Kubernetes.'
+	},
+	{
 		slug: 'sofrecom',
 		company: 'Sofrecom Tunisia',
 		description: 'Collaborated on a multi-team high-performing microservice project using the latest web technologies, ensuring scalability, reliability, and optimal performance while adhering to best practices and Agile methodologies.',

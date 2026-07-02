@@ -60,6 +60,7 @@ const Assets = {
 	Apeiron: a('apeiron.png'),
 	Satoripop: a('satoripop.png'),
 	Sofrecom: a('sofrecom.png'),
+	CriticalTechWorks: a('critical-techworks.jpg'),
 	EPI: a('EPI.png'),
 	Isiticom: a('isiticom.png'),
 	MongoDB: a('mongodb.svg'),
