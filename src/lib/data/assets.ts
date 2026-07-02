@@ -48,6 +48,8 @@ const Assets = {
 	Electron: a('electron.png'),
 	Flutter: a('flutter.svg'),
 	Java: a('java.png'),
+	Toeic: a('logo-toeic.svg'),
+	Eco: a('eco.svg'),
 	AdonisJs: a('adonis.png'),
 	Android: a('android.png'),
 	Angular: a('angular.png'),
@@ -55,6 +57,11 @@ const Assets = {
 	Firebase: a('firebase.png'),
 	Sass: a('sass.png'),
 	Unknown: a('no-img.svg'),
+	Apeiron: a('apeiron.png'),
+	Satoripop: a('satoripop.png'),
+	Sofrecom: a('sofrecom.png'),
+	EPI: a('EPI.png'),
+	Isiticom: a('isiticom.png'),
 	MongoDB: a('mongodb.svg'),
 	Redis: a('redis.svg'),
 	Tailwind: a('tailwind.svg'),
@@ -70,7 +77,20 @@ const Assets = {
 	Jest: a('jest.png'),
 	Unocss: a('unocss.svg'),
 	Ruvy: a('ruvy.svg'),
-	Postcss: a('postcss.svg')
+	Postcss: a('postcss.svg'),
+	Azure: a('azure.svg'),
+	Serverless: a('serverless.svg'),
+	Git: a('git.svg','git-dark.svg'),
+	SQL: a('sql.svg'),
+	NOSQL: a('mongo.svg'),
+	Camunda: a('camunda.svg',"camunda-dark.svg"),
+	Jhipster: a('jhipster.svg'),
+	Keycloak: a('keycloak.svg'),
+	Magento2: a('magento2.svg'),
+	SpringBoot: a('Spring_Boot.png'),
+	AstroJs: a('astrojs.svg'),
+	JQuery: a('jquery-dark.svg','jquery-light.svg'),
+	PHP: a('php.svg')
 };
 
 export default Assets;

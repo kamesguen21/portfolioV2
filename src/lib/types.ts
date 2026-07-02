@@ -7,7 +7,8 @@ export enum Platform {
 	Linkedin = 'linkedin',
 	Email = 'email',
 	Facebook = 'facebook',
-	Youtube = 'youtube'
+	Youtube = 'youtube',
+	Medium = 'medium'
 }
 
 export type Icon = `i-${string}-${string}`;
@@ -56,11 +57,21 @@ export interface Project<S extends string = string> extends Item<S> {
 	links: Array<Link>;
 	color: Color;
 	period: {
-		from: Date;
-		to?: Date;
+		from: Date; to?: Date;
 	};
 	type: string;
 	skills: Array<Skill<S>>;
+}
+export interface BlogPost<S extends string = string> extends Omit<Item<S>, 'shortDescription'>{
+	link: Link;
+	color: Color;
+	skills: Array<Skill<S>>;
+}
+export interface Certificate<S extends string = string> extends Omit<Item<S>, 'shortDescription'>{
+	link?: Link;
+	download?: Link;
+	color: Color;
+	skills?: Array<Skill<S>>;
 }
 
 export interface Experience<S extends string = string> extends Project<S> {
@@ -73,8 +84,7 @@ export interface Education<S extends string = string> extends Item<S> {
 	organization: string;
 	location: string;
 	period: {
-		from: Date;
-		to?: Date;
+		from: Date; to?: Date;
 	};
 	subjects: Array<string>;
 	degree: string;

@@ -1,25 +1,27 @@
 <script lang="ts">
-	import { items, title } from '@data/projects';
+	import { items, title } from '@data/certificates';
 	import * as skills from '@data/skills';
 	import { onMount } from 'svelte';
 
-	import type { Project, Skill } from '$lib/types';
+	import type { Certificate, Skill } from '$lib/types';
 
 	import Chip from '$lib/components/Chip/Chip.svelte';
-	import ProjectCard from '$lib/components/ProjectCard/ProjectCard.svelte';
 	import SearchPage from '$lib/components/SearchPage.svelte';
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
+	import CertificateCard from '@components/CertificateCard/CertificateCard.svelte';
 
 	interface SkillFilter extends Skill {
 		isSelected?: boolean;
 	}
 
-	let filters: Array<SkillFilter> = skills.items.filter((it) => {
-		return items.some((project) => project.skills.some((skill) => skill.slug === it.slug));
-	});
 
+	let filters: Array<SkillFilter> = skills.items.filter((it) => {
+		return items.some((certificate) =>
+			certificate.skills?.some((skill) => skill.slug === it.slug)
+		);
+	});
 	let search = '';
-	let displayed: Array<Project> = [];
+	let displayed: Array<Certificate> = [];
 
 	const isSelected = (slug: string): boolean => {
 		return filters.some((item) => item.slug === slug && item.isSelected);
@@ -36,16 +38,16 @@
 	};
 
 	$: {
-		displayed = items.filter((project) => {
+		displayed = items.filter((certificate) => {
 			const isFiltered =
 				filters.every((item) => !item.isSelected) ||
-				project.skills.some((tech) =>
+				(certificate.skills &&	certificate.skills.some((tech) =>
 					filters.some((filter) => filter.isSelected && filter.slug === tech.slug)
-				);
+				));
 
 			const isSearched =
 				search.trim().length === 0 ||
-				project.name.trim().toLowerCase().includes(search.trim().toLowerCase());
+				certificate.name.trim().toLowerCase().includes(search.trim().toLowerCase());
 
 			return isFiltered && isSearched;
 		});
@@ -70,11 +72,11 @@
 	});
 </script>
 
-<SearchPage {title} >
+<SearchPage on:search={onSearch} {title}>
 	<div class="projects-filters">
 		{#each filters as tech}
 			<Chip active={tech.isSelected} classes={'text-0.8em'} on:click={() => onSelected(tech.slug)}
-				>{tech.name}</Chip
+			>{tech.name}</Chip
 			>
 		{/each}
 	</div>
@@ -85,24 +87,24 @@
 		</div>
 	{:else}
 		<div class="projects-list mt-5">
-			{#each displayed as project}
-				<ProjectCard {project} />
+			{#each displayed as certificate}
+				<CertificateCard {certificate} />
 			{/each}
 		</div>
 	{/if}
 </SearchPage>
 
 <style lang="scss">
-	.projects-list {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 20px;
+  .projects-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 
-		@media (max-width: 1350px) {
-			grid-template-columns: repeat(2, 1fr);
-		}
-		@media (max-width: 850px) {
-			grid-template-columns: repeat(1, 1fr);
-		}
-	}
+    @media (max-width: 1350px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 850px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
 </style>
